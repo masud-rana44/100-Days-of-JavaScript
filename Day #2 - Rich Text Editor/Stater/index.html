@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>#1 - Rice Text Editor | AsmrProg</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="heading">
+        <div class="top">
+          <i class="fa-solid fa-bold"></i>
+          <i class="fa-solid fa-superscript"></i>
+          <i class="fa-solid fa-subscript"></i>
+          <i class="fa-solid fa-list-ol"></i>
+          <i class="fa-solid fa-list"></i>
+          <i class="fa-solid fa-rotate-left"></i>
+          <i class="fa-solid fa-rotate-right"></i>
+          <i class="fa-solid fa-link"></i>
+          <i class="fa-solid fa-link-slash"></i>
+          <i class="fa-solid fa-align-left"></i>
+          <i class="fa-solid fa-align-center"></i>
+          <i class="fa-regular fa-align-right"></i>
+        </div>
+        <div class="middle">
+          <i class="fa-solid fa-align-justify"></i>
+          <i class="fa-solid fa-outdent"></i>
+          <i class="fa-solid fa-indent"></i>
+          <select name="heading" id="">
+            <option value="h1">H1</option>
+            <option value="h2">H2</option>
+            <option value="h3">H3</option>
+            <option value="h4">H4</option>
+            <option value="h5">H5</option>
+            <option value="h6">H6</option>
+          </select>
+          <select name="font-family" id="">
+            <option value="arial">Arial</option>
+            <option value="h2">H2</option>
+            <option value="times new roman">Times New Roman</option>
+            <option value="h4">H4</option>
+            <option value="h5">H5</option>
+            <option value="h6">H6</option>
+          </select>
+          <select name="font-size" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select>
+        </div>
+        <div class="bottom">
+          <div class="font-color">
+            <input type="color" name="font-color" id="font-color" />
+            <label for="font-color">Font Color</label>
+          </div>
+          <div class="highlight-color">
+            <input type="color" name="heighlight-color" id="heighlight-color" />
+            <label for="heighlight-color">Heighlight Color</label>
+          </div>
+        </div>
+      </div>
+      <div class="textarea">
+        <textarea name="" id="" cols="75" rows="20"></textarea>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
