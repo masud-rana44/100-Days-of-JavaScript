@@ -1,67 +1,93 @@
-let container = document.querySelector(".container");
-let gridButton = document.getElementById("submit-grid");
-let clearGridButton = document.getElementById("clear-grid");
-let gridWidth = document.getElementById("width-range");
-let gridHeight = document.getElementById("height-range");
-let colorButton = document.getElementById("color-input");
-let eraseBtn = document.getElementById("erase-btn");
-let paintBtn = document.getElementById("paint-btn");
-let widthValue = document.getElementById("width-value");
-let heightValue = document.getElementById("height-value");
+let optionsButtons = document.querySelectorAll(".option-button");
+let advancedOptionButton = document.querySelectorAll(".adv-option-button");
+let fontName = document.getElementById("fontName");
+let fontSizeRef = document.getElementById("fontSize");
+let writingArea = document.getElementById("text-input");
+let linkButton = document.getElementById("createLink");
+let alignButtons = document.querySelectorAll(".align");
+let spacingButtons = document.querySelectorAll(".spacing");
+let formatButtons = document.querySelectorAll(".format");
+let scriptButtons = document.querySelectorAll(".script");
 
-let isPaint = true;
+let fontList = [
+  "Arial",
+  "Verdana",
+  "Times New Roman",
+  "Garamond",
+  "Georgia",
+  "Courier New",
+  "Cursive",
+  "Masud",
+];
 
-const clearGridMarkup = function () {
-  container.innerHTML = "";
+const highlighterRemover = function (className) {
+  className.forEach((btn) => {
+    btn.classList.remove("active");
+  });
 };
 
-const renderGridMarkup = function () {
-  let markup = "";
-  const row = +heightValue.textContent;
-  const col = +widthValue.textContent;
+const highlighter = function (className, needsRemoval) {
+  className.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (needsRemoval) {
+        let alreadyActive = false;
+        if (btn.classList.contains("active")) alreadyActive = true;
+        highlighterRemover(className);
+        if (!alreadyActive) btn.classList.add("active");
+      } else {
+        btn.classList.toggle("active");
+      }
+    });
+  });
+};
 
-  for (let i = 0; i < row; i++) {
-    markup += '<div class="gridRow">';
-    for (let j = 0; j < col; j++) {
-      markup += '<div class="gridCol"></div>';
-    }
-    markup += "</div>";
+const modifyText = (command, defaultUi, value) => {
+  document.execCommand(command, defaultUi, value);
+};
+
+optionsButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    modifyText(button.id, false, null);
+  });
+});
+
+advancedOptionButton.forEach((button) => {
+  button.addEventListener("change", () => {
+    modifyText(button.id, false, button.value);
+  });
+});
+
+linkButton.addEventListener("click", () => {
+  let userLink = prompt("Enter a URL?");
+  if (/http/i.test(userLink)) {
+    modifyText(linkButton.id, false, userLink);
+  } else {
+    userLink = "http://" + userLink;
+    modifyText(linkButton.id, false, userLink);
+  }
+});
+
+const intializer = function () {
+  highlighter(alignButtons, true);
+  highlighter(spacingButtons, true);
+  highlighter(formatButtons, false);
+  highlighter(scriptButtons, true);
+
+  fontList.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.innerHTML = value;
+    fontName.appendChild(option);
+  });
+
+  for (let i = 1; i <= 7; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.innerHTML = i;
+    fontSizeRef.appendChild(option);
   }
 
-  clearGridMarkup();
-  container.insertAdjacentHTML("beforeend", markup);
+  fontSizeRef.value = 3;
 };
 
-// Events
-const events = [gridWidth, gridHeight];
-
-window.onload = () => {
-  gridHeight.value = 0;
-  gridWidth.value = 0;
-};
-
-events.forEach((event) =>
-  event.addEventListener("input", () => {
-    if (event === gridWidth)
-      widthValue.textContent = `${event.value}`.padStart(2, 0);
-    else heightValue.textContent = `${event.value}`.padStart(2, 0);
-  })
-);
-
-eraseBtn.addEventListener("click", () => {
-  isPaint = false;
-});
-
-paintBtn.addEventListener("click", () => {
-  isPaint = true;
-});
-
-clearGridButton.addEventListener("click", clearGridMarkup);
-gridButton.addEventListener("click", renderGridMarkup);
-
-container.addEventListener("mousemove", (e) => {
-  const gridCell = e.target.closest(".gridCol");
-  if (!gridCell) return;
-
-  gridCell.style.backgroundColor = `${isPaint ? colorButton.value : "white"}`;
-});
+intializer();
