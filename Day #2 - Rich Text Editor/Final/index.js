@@ -17,7 +17,6 @@ let fontList = [
   "Georgia",
   "Courier New",
   "Cursive",
-  "Masud",
 ];
 
 const highlighterRemover = function (className) {

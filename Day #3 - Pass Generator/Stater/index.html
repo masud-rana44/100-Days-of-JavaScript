@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>#3 - Pass Generator | AsmrProg</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <h4 class="heading">Pass Generator</h4>
+      </header>
+      <main class="main">
+        <div class="display">
+          <div class="display__password">
+            <div class="display__password--text">bstlnbotfmlssqf</div>
+            <div class="display__password--icon"></div>
+          </div>
+          <div class="display__straingth"></div>
+        </div>
+
+        <div class="length">
+          <div class="length__level">
+            <label class="text">Password Length</label>
+            <label class="value">10</label>
+          </div>
+          <input
+            class="range"
+            type="range"
+            name="length"
+            id="length"
+            min="1"
+            max="30"
+          />
+        </div>
+
+        <div class="settings">
+          <p class="settings__headings">Pass Settings</p>
+          <div class="settings__options">
+            <div class="option">
+              <input type="checkbox" name="" id="lowercase" />
+              <label for="lowercase">Lowercase (a-z)</label>
+            </div>
+            <div class="option">
+              <input type="checkbox" name="" id="uppercase" />
+              <label for="uppercase">Uppercase (A-Z) </label>
+            </div>
+            <div class="option">
+              <input type="checkbox" name="" id="numbers" />
+              <label for="numbers">Numbers (0-9)</label>
+            </div>
+            <div class="option">
+              <input type="checkbox" name="" id="symbols" />
+              <label for="symbols">Symbols (!-$^+)</label>
+            </div>
+            <div class="option">
+              <input type="checkbox" name="" id="duplicate" />
+              <label for="duplicate">Exclude Duplicate</label>
+            </div>
+            <div class="option">
+              <input type="checkbox" name="" id="space" />
+              <label for="space">Include Spaces</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-box">
+          <button class="button">GENERATE PASSWORD</button>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

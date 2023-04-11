@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #43a047;
+}
+
+.container {
+  min-width: 45rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+}
+
+.header {
+  border-bottom: 1px solid #ccc;
+}
+
+.heading {
+  font-size: 2.1rem;
+  padding: 1.6rem 2.8rem;
+}
+
+.main {
+  padding: 2rem 2.8rem 4rem;
+}
+
+.display {
+  margin-bottom: 2.4rem;
+}
+
+.display__password {
+  border: 1px solid #aaa;
+  padding: 1.2rem 1.6rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.display__password--text {
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.display__straingth {
+  width: 50%;
+  height: 0.4rem;
+  border-radius: 0.5rem;
+  background-color: #a6bb04;
+}
+
+.length {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.length__level {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.range {
+  width: 100%;
+  height: 0.5rem;
+}
+
+.settings {
+  font-size: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.settings__headings {
+  margin-bottom: 1.6rem;
+}
+
+.settings__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1.6rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #555;
+}
+
+.option input {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.button-box {
+  display: block;
+}
+
+.button {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #fff;
+  background-color: #43a047;
+  border: none;
+  outline: none;
+  text-align: center;
+  padding: 1.6rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
