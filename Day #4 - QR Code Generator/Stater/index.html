@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>#4 - Qr Code Generator | Masud Rana</title>
+  </head>
+
+  <body>
+    <section>
+      <div class="input">
+        <div class="top">
+          <input class="input-color" type="color" value="#000" name="" id="" />
+          <input class="input-color" type="color" value="#fff" name="" id="" />
+          <select class="input-ratio">
+            <option value="">400 * 400</option>
+            <option value="">400 * 400</option>
+            <option value="">400 * 400</option>
+            <option value="">400 * 400</option>
+          </select>
+        </div>
+        <div class="bottom">
+          <input class="input-text" type="text" placeholder="Enter QR Text" />
+        </div>
+      </div>
+      <div class="qr"></div>
+      <div class="btn-box">
+        <button class="btn btn--download">
+          Download
+          <img class="btn-icon" src="download.svg" alt="Downlaod icon" />
+        </button>
+        <button class="btn btn--share">
+          Share <img class="btn-icon" src="share.svg" alt="Share icon" />
+        </button>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -22,9 +22,22 @@ let events2 = {
   },
 };
 
-let deviceType = 
+let deviceType = "";
 
-let isPaint = true;
+let draw = false;
+let erase = false;
+
+const isTouchDevice = function () {
+  try {
+    document.createEvent("TouchEvent");
+    deviceType = "touch";
+    return true;
+  } catch (err) {
+    deviceType = "mouse";
+    return false;
+  }
+};
+isTouchDevice();
 
 const clearGridMarkup = function () {
   container.innerHTML = "";
