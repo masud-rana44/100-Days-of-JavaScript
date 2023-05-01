@@ -9,8 +9,7 @@ const sizes = document.querySelector(".sizes");
 dark.addEventListener("input", handleDarkColor);
 light.addEventListener("input", handleLightColor);
 qrText.addEventListener("input", handleQRText);
-sizes.addEventListener("change", handleSize);
-shareBtn.addEventListener("click", handleShare);
+sizes.addEventListener("change", handleSizes);
 
 const defaultUrl = "https://youtube.com/@AsmrProg";
 let colorLight = "#fff",
@@ -37,6 +36,11 @@ function handleQRText(e) {
   generateQRCode();
 }
 
+function handleSizes(e) {
+  size = e.target.value;
+  generateQRCode();
+}
+
 async function generateQRCode() {
   qrContainer.innerHTML = "";
   new QRCode("qr-code", {
@@ -46,30 +50,8 @@ async function generateQRCode() {
     colorLight,
     colorDark,
   });
-  download.href = await resolveDataUrl();
-}
-
-async function handleShare() {
-  setTimeout(async () => {
-    try {
-      const base64url = await resolveDataUrl();
-      const blob = await (await fetch(base64url)).blob();
-      const file = new File([blob], "QRCode.png", {
-        type: blob.type,
-      });
-      await navigator.share({
-        files: [file],
-        title: text,
-      });
-    } catch (error) {
-      alert("Your browser doesn't support sharing.");
-    }
-  }, 100);
-}
-
-function handleSize(e) {
-  size = e.target.value;
-  generateQRCode();
+  console.log(await resolveDataUrl());
+  download.href = document.querySelector("#qr-code img").currentSrc;
 }
 
 function resolveDataUrl() {
@@ -85,4 +67,5 @@ function resolveDataUrl() {
     }, 50);
   });
 }
+
 generateQRCode();
